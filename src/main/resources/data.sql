@@ -1,0 +1,1 @@
+INSERT INTO FRUIT (ID, NAME) VALUES (1, 'Banan'), (2, 'Gruszka'), (3, 'Jablko'),;
