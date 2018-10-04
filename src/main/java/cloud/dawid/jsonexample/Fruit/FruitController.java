@@ -1,10 +1,9 @@
-package cloud.dawid.jsonexample;
+package cloud.dawid.jsonexample.Fruit;
 
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +24,14 @@ public class FruitController {
         return fruitService.findAll();
     }
 
+    @DeleteMapping("{id}")
+    public void delFruit(@PathVariable long id) { fruitService.delFruit(id);}
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Fruit createFruit(@RequestBody Fruit fruit){
+        fruitService.createFruit(fruit);
+        return fruit;
+    }
 
 }

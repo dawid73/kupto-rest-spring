@@ -1,4 +1,4 @@
-package cloud.dawid.jsonexample;
+package cloud.dawid.jsonexample.Fruit;
 
 import lombok.*;
 
@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Fruit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
