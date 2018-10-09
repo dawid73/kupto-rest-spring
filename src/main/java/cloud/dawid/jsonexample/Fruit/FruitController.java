@@ -8,28 +8,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/fruits")
+@RequestMapping(value = "/fruits")
 @NoArgsConstructor
 public class FruitController {
 
     private FruitService fruitService;
 
     @Autowired
-    public FruitController(FruitService fruitService){
+    public FruitController(FruitService fruitService) {
         this.fruitService = fruitService;
     }
 
     @GetMapping("/all")
-    public List<Fruit> allFruits(){
+    public List<Fruit> allFruits() {
         return fruitService.findAll();
     }
 
-    @DeleteMapping("{id}")
-    public void delFruit(@PathVariable long id) { fruitService.delFruit(id);}
+    @DeleteMapping("/del/{id}")
+    public void delFruit(@PathVariable long id) {
+        fruitService.delFruit(id);
+    }
 
-    @PostMapping
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Fruit createFruit(@RequestBody Fruit fruit){
+    public Fruit createFruit(@RequestBody Fruit fruit) {
         fruitService.createFruit(fruit);
         return fruit;
     }

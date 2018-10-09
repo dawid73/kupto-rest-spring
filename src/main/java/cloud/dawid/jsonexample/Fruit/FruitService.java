@@ -18,17 +18,19 @@ public class FruitService {
 
     private final FruitRepository fruitRepository;
 
-    public List<Fruit> findAll() {return fruitRepository.findAll();}
+    public List<Fruit> findAll() {
+        return fruitRepository.findAll();
+    }
 
     @Transactional
     public void delFruit(@NonNull long id) throws EntityNotFoundException {
-        if(!fruitRepository.existsById(id))
-            throw new EntityNotFoundException("Nie owoca z takim id: "  + id);
+        if (!fruitRepository.existsById(id))
+            throw new EntityNotFoundException("Nie owoca z takim id: " + id);
         fruitRepository.deleteById(id);
     }
 
     @Transactional
-    public void createFruit(@NonNull Fruit fruit){
+    public void createFruit(@NonNull Fruit fruit) {
         fruitRepository.save(fruit);
     }
 
