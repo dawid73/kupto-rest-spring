@@ -1,1 +1,0 @@
-INSERT INTO FRUIT (NAME) VALUES ('Banan'), ('Gruszka'), ('Jablko'),;
