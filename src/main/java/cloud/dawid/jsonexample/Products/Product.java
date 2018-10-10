@@ -1,8 +1,12 @@
-package cloud.dawid.jsonexample.Fruit;
+package cloud.dawid.jsonexample.Products;
+
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Builder
@@ -10,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
-public class Fruit {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +22,6 @@ public class Fruit {
 
     private String name;
 
+    private Integer ilosc;
 
 }
